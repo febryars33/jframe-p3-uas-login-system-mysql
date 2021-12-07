@@ -1,2 +1,3 @@
-# jframe-p3-uas-login-system-mysql
-Pemograman 3 UAS
+# Pemograman 3
+UAS (Ulangan Akhir Semester)
+Login System dengan database MySQL
