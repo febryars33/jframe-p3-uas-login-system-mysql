@@ -15,6 +15,16 @@ import static javax.swing.JOptionPane.showMessageDialog;
  */
 public class SqlConnection {
     
+    private static String url = "jdbc:mysql://localhost:3306/";
+    
+    private static String db_name = "";
+    
+    private static String username = "";
+    
+    private static String password = "";
+    
+    private static String host = url+db_name;
+    
     private static java.sql.Connection DatabaseConnection;
     
     public static java.sql.Connection getConnection() {
@@ -22,24 +32,15 @@ public class SqlConnection {
         if(DatabaseConnection == null) {
             try {
                 
-                String url = "jdbc:mysql://localhost:3306/jframe_uas";
-                
-                String username = "root";
-                
-                String password = "eadgbedadgbe123";
-                
                 DriverManager.registerDriver(new com.mysql.jdbc.Driver());
                 
-                DatabaseConnection = DriverManager.getConnection(url, username, password);
+                DatabaseConnection = DriverManager.getConnection(host, username, password);
                 
                 System.out.println("Database Connected !");
                 
             } catch (SQLException e) {
                 
-//                Errors obj = new Errors();
-//                obj.errorMessage(e.getMessage());
-//                obj.setVisible(true);
-                  showMessageDialog(null, e.getMessage());
+                showMessageDialog(null, e.getMessage());
             }
         }
         return DatabaseConnection;
